@@ -84,7 +84,7 @@ namespace BulletHellTemplate
         /// <summary>
         /// Highlights this entry as selected.
         /// </summary>
-        public void Select() => selected.gameObject.SetActive(true);
+        public void Select() => selected?.gameObject.SetActive(true);
 
         /// <summary>
         /// Removes selection highlight.

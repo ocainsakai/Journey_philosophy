@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
         PlayerController.Instance.OffInput();
 
         _uiDialogue.gameObject.SetActive(true);
-        _uiDialogue.StartDialogue(startNode);
+        _uiDialogue.StartDialogue(startNode, PlayerController.Instance);
     }
 
     public void EndDialogue()

@@ -11,11 +11,12 @@ public class UIDialogue : MonoBehaviour
     [SerializeField] private Button optionButtonPrefab;
 
     private DialogueNode currentNode;
-
+    private PlayerController playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void StartDialogue(DialogueNode startNode)
+    public void StartDialogue(DialogueNode startNode, PlayerController player)
     {
         currentNode = startNode;
+        playerController = player;
         ShowNode(currentNode);
     }
     void ShowNode(DialogueNode node)
@@ -50,11 +51,17 @@ public class UIDialogue : MonoBehaviour
             btn.GetComponentInChildren<TextMeshProUGUI>().text = option.optionText;
             btn.onClick.AddListener(() =>
             {
+                if (option.rewardItem != null)
+                {
+                    playerController.Inventory.Add(option.rewardItem);
+                }
                 if (option.nextNode != null)
                 {
                     ShowNode(option.nextNode);
                 }
             });
+
+            
         }
         else
         {
