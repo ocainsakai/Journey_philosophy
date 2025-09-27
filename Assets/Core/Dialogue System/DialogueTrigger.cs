@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
     private PlayerController playerController;
     private void Awake()
     {
-        button = GetComponentInChildren<Button>();
+        //button = GetComponentInChildren<Button>();
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => Interact());
         button.gameObject.SetActive(false);
