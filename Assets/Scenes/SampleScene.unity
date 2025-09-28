@@ -12595,6 +12595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a971b9c7e9467eb418d79ae4ec5ce4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 520053714}
   startNode: {fileID: 11400000, guid: 8dc6ff92b80623e498e3db6482cd305c, type: 2}
 --- !u!1 &1891037714
 GameObject:
@@ -12740,10 +12741,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIDialogue
       objectReference: {fileID: 0}
-    - target: {fileID: 6090393108055377855, guid: 64c604159ba32814d8ae363d0f51a240, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8317029665407205615, guid: 64c604159ba32814d8ae363d0f51a240, type: 3}
       propertyPath: optionsContainer
       value: 
@@ -12774,11 +12771,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9032027577231780491, guid: 64c604159ba32814d8ae363d0f51a240, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 9032027577231780491, guid: 64c604159ba32814d8ae363d0f51a240, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 9032027577231780491, guid: 64c604159ba32814d8ae363d0f51a240, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12814,7 +12811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9032027577231780491, guid: 64c604159ba32814d8ae363d0f51a240, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9032027577231780491, guid: 64c604159ba32814d8ae363d0f51a240, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
