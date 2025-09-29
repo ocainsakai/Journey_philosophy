@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e92e0defe2960e043a9507bba6e98dc6, type: 3}
-  m_Name: D2.start
+  m_Name: Door
   m_EditorClassIdentifier: 
-  speakerName: Collector Old Lady
-  dialogueText: I need a Red Apple. Do you have one?
+  speakerName: Door
+  dialogueText: You need cherry to open the door.
   options:
-  - {fileID: 11400000, guid: a5c0882e7fb9bdd46a878ee029f886eb, type: 2}
-  - {fileID: 11400000, guid: ceea25a99143fb84ba23a36182190e4d, type: 2}
+  - {fileID: 11400000, guid: fe231ec22c1b5574e842e549d30212e1, type: 2}

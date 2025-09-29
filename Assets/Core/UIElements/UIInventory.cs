@@ -24,13 +24,13 @@ public class UIInventory : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (_inventoryEntries == null)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                CreateSlot();
-            }
-        }
+        //if (_inventoryEntries == null)
+        //{
+        //    for (int i = 0; i < 100; i++)
+        //    {
+        //        CreateSlot();
+        //    }
+        //}
     }
     public InventoryEntry CreateSlot(InventoryItem item = null)
     {

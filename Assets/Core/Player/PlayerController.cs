@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,11 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerMovement _movement;
     [SerializeField] PlayerInventory _inventory;
-    [SerializeField] PlayerInteraction _interactionManager;
+    [SerializeField] PlayerCollider _collider;
     [SerializeField] UIInventory _uiInventory;
     public PlayerMovement Move => _movement;
     public PlayerInventory Inventory => _inventory;
-    public PlayerInteraction Interaction => _interactionManager;
 
     private bool _inputEnable = true;
     public static PlayerController Instance { get; private set; }
@@ -29,6 +29,26 @@ public class PlayerController : MonoBehaviour
     {
         _inputEnable = true;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && _inputEnable )
+        {
+            var interact = _collider.colliders
+        .Select(x => x.GetComponent<IInteractable>())
+        .FirstOrDefault(i => i != null);
+
+            if (interact != null)
+            {
+                Debug.Log("Interact with: " + ((MonoBehaviour)interact).name);
+                interact.Interact();
+            }
+            else
+            {
+                Debug.Log("No interactable object found");
+            }
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -45,10 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             _movement.Stop();
         }
+        
     }
 
-    public void SetInteract(IInteractable target)
-    {
-        Interaction.SetAction(target.GetInteractionPrompt(), () => target.Interact());
-    }
 }

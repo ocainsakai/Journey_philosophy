@@ -64,7 +64,7 @@ public class UIDialogueBox : MonoBehaviour
             StopCoroutine(typingCoroutine);
             typingCoroutine = null;
         }
-        _dialogueContent.text = lines[index]; // hiện toàn bộ câu ngay lập tức
+        _dialogueContent.text = lines[index]; 
         OnLineComplete?.Invoke();
     }
 }

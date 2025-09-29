@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +17,6 @@ public class UIDialogue : MonoBehaviour
 
     private void Update()
     {
-        // Enter skip chữ đang chạy hoặc sang câu kế
         if (Input.GetKeyDown(KeyCode.F))
         {
             dialogueText.EndDialogue();
@@ -39,37 +40,45 @@ public class UIDialogue : MonoBehaviour
         // Đăng ký callback: khi text chạy xong thì gọi
         dialogueText.OnLineComplete = () =>
         {
-            Debug.Log("aaaa");
-            if (node.options != null && node.options.Length > 0)
-            {
-                ShowOptions(node);
-            }
-            else
-            {
-                // Nếu không có option thì kết thúc luôn node
-                CreateEndButton();
-            }
+            HandleNodeCompletion(node);
         };
 
         yield return dialogueText.StartDialogue();
     }
 
-    private void ShowOptions(DialogueNode node)
+    private void HandleNodeCompletion(DialogueNode node)
+    {
+        List<DialogueOption> filtedNodes = node.options.Where(IsOptionAvailable).ToList();
+        if (filtedNodes != null && filtedNodes.Count > 0)
+        {
+            ShowOptions(filtedNodes);
+        }
+        else
+        {
+            CreateEndButton();
+        }
+    }
+
+    private void ShowOptions(List<DialogueOption> options)
     {
         // Xoá các lựa chọn cũ
         foreach (Transform child in optionsContainer)
             Destroy(child.gameObject);
 
         optionsContainer.gameObject.SetActive(true);
-
-        foreach (var option in node.options)
+       
+        foreach (var option in options)
         {
             CreateButton(option);
         }
     }
-
+    private bool IsOptionAvailable(DialogueOption option)
+    {
+        return option.requiredItem == null || playerController.Inventory.Contain(option.requiredItem);
+    }
     private void CreateButton(DialogueOption option)
     {
+
         var btn = Instantiate(optionButtonPrefab, optionsContainer);
 
         btn.GetComponentInChildren<TextMeshProUGUI>().text = option.optionText;
@@ -79,6 +88,10 @@ public class UIDialogue : MonoBehaviour
             if (option.rewardItem != null)
             {
                 playerController.Inventory.Add(option.rewardItem);
+            }
+            if (option.requiredItem != null)
+            {
+                playerController.Inventory.Remove(option.requiredItem);
             }
             if (option.nextNode != null)
             {

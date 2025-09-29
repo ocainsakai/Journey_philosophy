@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34dd7b4c53fad614b931aa67058f9d2e, type: 3}
-  m_Name: D2_O1
+  m_Name: Door_O2
   m_EditorClassIdentifier: 
-  optionText: Yes, your here.
-  nextNode: {fileID: 11400000, guid: 22e2832f36ba66a4e841c60ce30cece9, type: 2}
-  requiredItem: {fileID: 11400000, guid: 3f1d25c9f717d554aa3788719189fdcd, type: 2}
+  optionText: 
+  nextNode: {fileID: 0}
+  requiredItem: {fileID: 11400000, guid: a47429cdb9b96c846a16752f716ae771, type: 2}
   removeItemOnUse: 0
-  rewardItem: {fileID: 11400000, guid: a47429cdb9b96c846a16752f716ae771, type: 2}
+  rewardItem: {fileID: 0}
   rewardQuantity: 1

@@ -27,4 +27,9 @@ public class PlayerInventory : MonoBehaviour
         _items.Remove(item);
         OnInventoryRemove?.Invoke();
     }
+
+    public bool Contain(InventoryItem requiredItem)
+    {
+        return _items.Contains(requiredItem);
+    }
 }
