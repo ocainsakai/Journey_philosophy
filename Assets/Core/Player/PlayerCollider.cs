@@ -1,16 +1,43 @@
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCollider : MonoBehaviour
 {
-    public List<Collider2D> colliders;
+    private Collider2D target;
+    public Button button;
+    [SerializeField] private float interactRadius = 1.5f;
+    [SerializeField] private LayerMask interactLayer;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        colliders.Add(collision);
+        target = Physics2D.OverlapCircle(transform.position, interactRadius, interactLayer);
+        Debug.Log(target);
+        if (button != null && CanInteract())
+        {
+            button.gameObject.SetActive(true);
+        }
+        else
+        {
+            button.gameObject.SetActive(false);
+        }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    public IInteractable GetInteractable()
     {
-        colliders.Remove(collision);
+        if (CanInteract())
+        {
+            return target.GetComponent<IInteractable>();
+        }
+        return null;
+    }
+    public bool CanInteract()
+    {
+        if (target == null) return false;
+        return target.GetComponent<IInteractable>() != null;
+
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, interactRadius);
     }
 }

@@ -15,13 +15,13 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
-    public void StartDialogue(DialogueNode startNode, DialogueTrigger trigger)
+    public void StartDialogue(DialogueNode startNode, DialogueTrigger trigger, Action onCondition = null)
     {
         
         PlayerController.Instance.OffInput();
         _currentTrigger = trigger;
         _uiDialogue.gameObject.SetActive(true);
-        _uiDialogue.StartDialogue(startNode, PlayerController.Instance);
+        _uiDialogue.StartDialogue(startNode, PlayerController.Instance, onCondition);
     }
 
     public void EndDialogue()
@@ -29,7 +29,11 @@ public class DialogueManager : MonoBehaviour
         PlayerController.Instance.OnInput();
 
         _uiDialogue.gameObject.SetActive(false);
-        _currentTrigger.OnEndDialogue();
-        _currentTrigger=null;
+
+        if (_currentTrigger != null)
+        {
+            _currentTrigger.OnEndDialogue?.Invoke();
+            _currentTrigger=null;
+        }
     }
 }

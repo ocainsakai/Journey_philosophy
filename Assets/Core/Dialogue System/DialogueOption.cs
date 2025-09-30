@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Dialogue/Option", fileName = "New Dialogue Option")]
 public class DialogueOption : ScriptableObject
 {
+    [TextArea]
     public string optionText;        
     public DialogueNode nextNode;
 
@@ -14,4 +15,7 @@ public class DialogueOption : ScriptableObject
     [Header("Rewards")]
     public InventoryItem rewardItem;
     public int rewardQuantity = 1;
+
+    public bool HasCondition;
+    public bool EndTrigger;
 }

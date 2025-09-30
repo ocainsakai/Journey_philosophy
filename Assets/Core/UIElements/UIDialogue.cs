@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -14,6 +15,7 @@ public class UIDialogue : MonoBehaviour
 
     private DialogueNode currentNode;
     private PlayerController playerController;
+    private Action dialogueCondition;   // ✅ giữ lại callback
 
     private void Update()
     {
@@ -23,8 +25,11 @@ public class UIDialogue : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueNode startNode, PlayerController player)
+    public void StartDialogue(DialogueNode startNode, PlayerController player, Action onCondition = null)
     {
+        dialogueCondition = onCondition;   // ✅ lưu lại khi bắt đầu
+        Debug.Log($" StartDialogue {dialogueCondition}");
+
         currentNode = startNode;
         playerController = player;
         StartCoroutine(ShowNode(currentNode));
@@ -32,6 +37,8 @@ public class UIDialogue : MonoBehaviour
 
     IEnumerator ShowNode(DialogueNode node)
     {
+        Debug.Log($" ShowNode {dialogueCondition}");
+
         currentNode = node;
         speakerNameText.text = node.speakerName;
 
@@ -48,6 +55,8 @@ public class UIDialogue : MonoBehaviour
 
     private void HandleNodeCompletion(DialogueNode node)
     {
+        Debug.Log($" HandleNodeCompletion {dialogueCondition}");
+
         List<DialogueOption> filtedNodes = node.options.Where(IsOptionAvailable).ToList();
         if (filtedNodes != null && filtedNodes.Count > 0)
         {
@@ -61,30 +70,38 @@ public class UIDialogue : MonoBehaviour
 
     private void ShowOptions(List<DialogueOption> options)
     {
+        Debug.Log($" ShowOptions {dialogueCondition}");
+
         // Xoá các lựa chọn cũ
         foreach (Transform child in optionsContainer)
             Destroy(child.gameObject);
 
         optionsContainer.gameObject.SetActive(true);
-       
+
         foreach (var option in options)
         {
             CreateButton(option);
         }
     }
+
     private bool IsOptionAvailable(DialogueOption option)
     {
         return option.requiredItem == null || playerController.Inventory.Contain(option.requiredItem);
     }
+
     private void CreateButton(DialogueOption option)
     {
-
+        Debug.Log($" CreateButton {dialogueCondition}");
         var btn = Instantiate(optionButtonPrefab, optionsContainer);
 
         btn.GetComponentInChildren<TextMeshProUGUI>().text = option.optionText;
 
         btn.onClick.AddListener(() =>
         {
+            if (option.HasCondition)
+            {
+                dialogueCondition?.Invoke();   // ✅ gọi từ field
+            }
             if (option.rewardItem != null)
             {
                 playerController.Inventory.Add(option.rewardItem);
@@ -93,14 +110,16 @@ public class UIDialogue : MonoBehaviour
             {
                 playerController.Inventory.Remove(option.requiredItem);
             }
+
+            if (option.EndTrigger)
+            {
+                EndDialogue();
+                return;
+            }
             if (option.nextNode != null)
             {
                 optionsContainer.gameObject.SetActive(false);
-                StartCoroutine(ShowNode(option.nextNode));
-            }
-            else
-            {
-                EndDialogue();
+                StartCoroutine(ShowNode(option.nextNode));   // ✅ không cần truyền lại onCondition
             }
         });
     }
@@ -113,7 +132,7 @@ public class UIDialogue : MonoBehaviour
         optionsContainer.gameObject.SetActive(true);
 
         var btn = Instantiate(optionButtonPrefab, optionsContainer);
-        btn.GetComponentInChildren<TextMeshProUGUI>().text = "End Dialogue";
+        btn.GetComponentInChildren<TextMeshProUGUI>().text = "Kết thúc";
 
         btn.onClick.AddListener(() =>
         {

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 3f1d25c9f717d554aa3788719189fdcd, type: 2}
   _pickupTrigger: {fileID: 3639093071923986159}
+  image: {fileID: 3882024708403587073}
 --- !u!1 &5688387950763193047
 GameObject:
   m_ObjectHideFlags: 0

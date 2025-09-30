@@ -1,6 +1,5 @@
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,21 +33,23 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && _inputEnable )
         {
-            var interact = _collider.colliders
-        .Select(x => x.GetComponent<IInteractable>())
-        .FirstOrDefault(i => i != null);
-
-            if (interact != null)
-            {
-                Debug.Log("Interact with: " + ((MonoBehaviour)interact).name);
-                interact.Interact();
-            }
-            else
-            {
-                Debug.Log("No interactable object found");
-            }
+            CheckInteract();
         }
     }
+
+    public void CheckInteract()
+    {
+        
+        if (_collider.CanInteract())
+        {
+            _collider.GetInteractable().Interact();
+        }
+        else
+        {
+            Debug.Log("No interactable object found");
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

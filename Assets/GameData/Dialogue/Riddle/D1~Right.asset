@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92e0defe2960e043a9507bba6e98dc6, type: 3}
+  m_Name: D1~Right
+  m_EditorClassIdentifier: 
+  speakerName: "Hi\u1EC1n gi\u1EA3"
+  dialogueText: "\u0110\xFAng v\u1EADy! V\u1EADt ch\u1EA5t l\xE0 n\u1EC1n t\u1EA3ng,
+    quy\u1EBFt \u0111\u1ECBnh \xFD th\u1EE9c. Ng\u01B0\u01A1i \u0111\xE3 hi\u1EC3u.
+    \u0110\xE2y, nh\u1EADn l\u1EA5y L\u01B0\u1EE1i C\xE0y \u2013 bi\u1EC3u t\u01B0\u1EE3ng
+    cho lao \u0111\u1ED9ng c\u1EA3i bi\u1EBFn t\u1EF1 nhi\xEAn."
+  options:
+  - {fileID: 11400000, guid: 8f273fb29e260a241ae214d0b52ff055, type: 2}

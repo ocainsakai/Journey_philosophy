@@ -8,4 +8,6 @@ public class MapMetaData : ScriptableObject
     public string Name;
     public Sprite Art;
     public SceneAsset scene;
+
+    public bool IsUnlocked;
 }

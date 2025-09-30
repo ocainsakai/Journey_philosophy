@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dd7b4c53fad614b931aa67058f9d2e, type: 3}
+  m_Name: D1_O2
+  m_EditorClassIdentifier: 
+  optionText: "V\u1EADt ch\u1EA5t c\xF3 tr\u01B0\u1EDBc, \xFD th\u1EE9c ph\u1EA3n
+    \xE1nh v\u1EADt ch\u1EA5t."
+  nextNode: {fileID: 11400000, guid: 90fb4f31c5f198b4ca8b2822886f4004, type: 2}
+  requiredItem: {fileID: 0}
+  removeItemOnUse: 0
+  rewardItem: {fileID: 0}
+  rewardQuantity: 1
+  HasCondition: 0
+  EndTrigger: 0
