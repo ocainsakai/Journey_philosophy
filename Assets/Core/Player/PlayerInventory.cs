@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerInventory : MonoBehaviour
     public Action OnInventoryAdd;
     public Action OnInventoryRemove;
 
+    public UnityEvent<List<InventoryItem>> OnAddEvent;
     public void Add(InventoryItem item, int quantity =1)
     {
         for (int i = 0; i < quantity; i++)
@@ -20,6 +22,7 @@ public class PlayerInventory : MonoBehaviour
             _items.Add(item);
         }
         OnInventoryAdd?.Invoke();
+        OnAddEvent?.Invoke(_items);
     }
 
     public void Remove(InventoryItem item)

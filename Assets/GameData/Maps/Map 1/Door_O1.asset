@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dd7b4c53fad614b931aa67058f9d2e, type: 3}
+  m_Name: Door_O1
+  m_EditorClassIdentifier: 
+  optionText: Throw cherry
+  nextNode: {fileID: 0}
+  requiredItem: {fileID: 11400000, guid: a47429cdb9b96c846a16752f716ae771, type: 2}
+  removeItemOnUse: 0
+  rewardItem: {fileID: 0}
+  rewardQuantity: 1

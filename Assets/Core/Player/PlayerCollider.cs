@@ -8,10 +8,9 @@ public class PlayerCollider : MonoBehaviour
     [SerializeField] private float interactRadius = 1.5f;
     [SerializeField] private LayerMask interactLayer;
 
-    private void Update()
+    private void FixedUpdate()
     {
         target = Physics2D.OverlapCircle(transform.position, interactRadius, interactLayer);
-        Debug.Log(target);
         if (button != null && CanInteract())
         {
             button.gameObject.SetActive(true);

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229cc8767f81895408221d7421e3cdef, type: 3}
+  m_Name: "K\u1EF9 thu\u1EADt D\u1EC7t T\u01A1 L\u1EE5a"
+  m_EditorClassIdentifier: 
+  title: "K\u1EF9 thu\u1EADt D\u1EC7t T\u01A1 L\u1EE5a"
+  description: 
+  itemId: 
+  category: 
+  itemIcon: {fileID: 8943951283269082122, guid: 53d8180ef55ba2c4780061d7c4d36053, type: 3}
+  itemUpgrades: []
+  isUnlocked: 0
+  rarity: 0
+  slot: 
