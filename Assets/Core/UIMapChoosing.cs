@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class UIMapChoosing : MonoBehaviour
 {
+    public MapMetaData[] MapMetaData;
     [SerializeField] MapEntry mapEntry;
     [SerializeField] Sprite locked;
     private void OnEnable()
@@ -10,7 +11,7 @@ public class UIMapChoosing : MonoBehaviour
         {
             Destroy(i.gameObject);
         }
-        foreach (MapMetaData m in GameManager.instance.maps)
+        foreach (MapMetaData m in MapMetaData)
         {
             if (m != null)
             {

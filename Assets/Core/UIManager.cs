@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
             return;
         }
     }
-    public void ItemPickupped(InventoryItem item)
+    public void ItemAddEffect(InventoryItem item)
     {
         if (PickupPanel != null)
         {

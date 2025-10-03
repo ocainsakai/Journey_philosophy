@@ -1,37 +1,49 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
-    [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private float moveSpeed = 5f;
+    public float speed = 5f;
+    public float jumpForce = 10f;
+    private Rigidbody2D rb;
+    private bool isGrounded;
 
-    private void Awake()
+    void Start()
     {
-        // Nếu quên gán trong Inspector thì sẽ tự động lấy
-        if (_rb == null)
-            _rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    public void MoveLeft()
+    void Update()
     {
-        if (_rb == null) return;
-        _rb.linearVelocity = new Vector2(-moveSpeed, _rb.linearVelocity.y);
-        transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        // Di chuyển
+        float move = Input.GetAxis("Horizontal");
+        rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
 
+        // Nhảy
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+
+        // Lật sprite
+        if (move > 0) transform.localScale = new Vector3(1, 1, 1);
+        if (move < 0) transform.localScale = new Vector3(-1, 1, 1);
     }
 
-    public void MoveRight()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (_rb == null) return;
-        _rb.linearVelocity = new Vector2(moveSpeed, _rb.linearVelocity.y);
-        transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        if (col.gameObject.CompareTag("Ground"))
+            isGrounded = true;
+    }
 
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Ground"))
+            isGrounded = false;
     }
 
     public void Stop()
     {
-        if (_rb == null) return;
-        _rb.linearVelocity = new Vector2(0, _rb.linearVelocity.y);
+        rb.linearVelocity = Vector3.zero;
     }
 }

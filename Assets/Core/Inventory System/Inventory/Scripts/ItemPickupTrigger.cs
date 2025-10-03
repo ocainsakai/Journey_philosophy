@@ -16,7 +16,6 @@ public class ItemPickupTrigger : MonoBehaviour
     public void TriggerPickup(PlayerController player)
     {
         player.Inventory.Add(_item);
-        UIManager.Instance.ItemPickupped(_item);
         transform.parent.gameObject.SetActive(false);
     }
 
@@ -24,7 +23,7 @@ public class ItemPickupTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            TriggerPickup(collision.transform.parent.GetComponent<PlayerController>());
+            TriggerPickup(collision.transform.GetComponent<PlayerController>());
         }
     }
 }

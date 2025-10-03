@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   itemId: 
   category: 
-  itemIcon: {fileID: -2567956080833113022, guid: b49f5fd62aa38a7458113a21c9b66d92, type: 3}
+  itemIcon: {fileID: 3231019089165690306, guid: 42c5fb0d7fe2ae54abbef87db38409ff, type: 3}
   itemUpgrades: []
   isUnlocked: 0
   rarity: 0

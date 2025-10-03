@@ -8,7 +8,7 @@ public class RequireItemCondition : BaseCondition
 
     public override bool IsMet(PlayerController player)
     {
-        return player.Inventory.Contain(requiredItem);
+        return player.Inventory.HasItem(requiredItem);
     }
 
     public override string GetFailMessage()

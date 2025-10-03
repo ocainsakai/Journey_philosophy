@@ -10,5 +10,11 @@ public class GameManagerHelper : MonoBehaviour
     public void LoadSccene(SceneAsset sceneAsset)
     {
         SceneManager.LoadScene(sceneAsset.name);
+        SavePlayer();
+    }
+
+    private void SavePlayer()
+    {
+        PlayerController.Instance.Inventory.SaveData();
     }
 }

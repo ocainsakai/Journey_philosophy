@@ -1,39 +1,79 @@
-using BulletHellTemplate;
+﻿using BulletHellTemplate;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : NPCController
+public class Rock : MonoBehaviour
 {
     [SerializeField] GameObject popup;
-
+    public GameObject puzzlePanel;
     [SerializeField] InventoryItem inventoryItem1;
     [SerializeField] InventoryItem inventoryItem2;
 
-    [SerializeField] Rigidbody2D rigidbody2;
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (popup != null && popup.activeSelf) 
-        StartCoroutine(ShowPopup());
-    }
+    Collider2D _collider;
+    public float moveSpeed = 3f; // Cho đá rơi
+    public bool isMoving = false;
+    public bool hasAppeer = false;
     private void Start()
     {
         popup.SetActive(false);
-        rigidbody2.bodyType = RigidbodyType2D.Static;
+        _collider = GetComponent<Collider2D>();
     }
-    IEnumerator ShowPopup()
+    void Update()
     {
-        popup.SetActive(true);
-        yield return new WaitForSeconds(1);
-        popup.SetActive(false);
+        if ( !hasAppeer)
+        {
+            OnCondition();
+            return;
+        }
+        if (isMoving)
+        {
+            transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
+        }
+        if (transform.position.y <= -1.5f && isMoving)
+        {
+            isMoving = false;
+            _collider.isTrigger = false;
+            popup.SetActive(true);
+        }
     }
 
-    public void OnCondition(List<InventoryItem> items)
+    public void OnCondition()
     {
+        var items = PlayerController.Instance.Inventory.Items;
         if (items.Contains(inventoryItem1) && items.Contains(inventoryItem2))
         {
-            rigidbody2.bodyType = RigidbodyType2D.Dynamic;
-
+            transform.position = new Vector3(PlayerController.Instance.transform.position.x + 3, 10f, 0f);
+            isMoving = true;
+            hasAppeer = true;
         }
+    }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            GameManager.instance.LoseLife();
+        }
+        if (col.CompareTag("Ground"))
+        {
+            isMoving = false;
+            _collider.isTrigger = false;
+            popup.SetActive(true);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            PlayerController.Instance.Stop();
+
+            puzzlePanel.SetActive(true);
+        }
+    }
+
+    public void OnPuzzleWin()
+    {
+        popup.gameObject.SetActive(false);
+        _collider.enabled = false;
     }
 }

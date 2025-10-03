@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bb18ea31a880b449a25c6b74006386, type: 3}
+  m_Name: Chang 2
+  m_EditorClassIdentifier: 
+  title: "NH\u1EACN TH\u1EE8C V\xC0 THUY\u1EBET KH\u1EA2 TRI"
+  content: "C\xF3 ng\u01B0\u1EDDi cho r\u1EB1ng con ng\u01B0\u1EDDi kh\xF4ng th\u1EC3
+    bi\u1EBFt \u0111\u01B0\u1EE3c g\xEC \u0111\xF3 l\xE0 thuy\u1EBFt b\u1EA5t kh\u1EA3
+    tri.\r\n\r\nNh\u01B0ng tri\u1EBFt h\u1ECDc M\xE1c \u2013 L\xEAnin kh\u1EB3ng
+    \u0111\u1ECBnh: Con ng\u01B0\u1EDDi c\xF3 kh\u1EA3 n\u0103ng nh\u1EADn th\u1EE9c
+    th\u1EBF gi\u1EDBi kh\xE1ch quan, th\xF4ng qua th\u1EF1c ti\u1EC5n v\xE0 khoa
+    h\u1ECDc.\r\n\r\nV\xED d\u1EE5: Ng\u01B0\u1EDDi Trung Hoa ph\xE1t minh la b\xE0n
+    \u2192 m\u1EDF \u0111\u01B0\u1EDDng h\xE0ng h\u1EA3i, nh\u1EADn th\u1EE9c th\u1EBF
+    gi\u1EDBi r\u1ED9ng l\u1EDBn h\u01A1n."
+  philosopherImage: {fileID: 0}
+  soundEffect: {fileID: 0}

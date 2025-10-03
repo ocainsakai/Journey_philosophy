@@ -11,17 +11,6 @@ public class ItemGO : MonoBehaviour
     private void Awake()
     {
         _pickupTrigger.Item = _item;
-        _pickupTrigger.enabled = false;
         image.sprite = _item.itemIcon;
-    }
-    private void OnEnable()
-    {
-        StartCoroutine(AwakeAnim());
-    }
-
-    IEnumerator AwakeAnim()
-    {
-        yield return transform.DOJump(transform.position + Vector3.right, 1f, 2 ,1f);
-        _pickupTrigger.enabled=true;
     }
 }

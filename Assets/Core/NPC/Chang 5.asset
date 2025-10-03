@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bb18ea31a880b449a25c6b74006386, type: 3}
+  m_Name: Chang 5
+  m_EditorClassIdentifier: 
+  title: "QUAN H\u1EC6 S\u1EA2N XU\u1EA4T V\xC0 X\xC3 H\u1ED8I"
+  content: "S\u1EA3n xu\u1EA5t v\u1EADt ch\u1EA5t quy\u1EBFt \u0111\u1ECBnh x\xE3
+    h\u1ED9i.\r\n\r\nL\u1EF1c l\u01B0\u1EE3ng s\u1EA3n xu\u1EA5t quy\u1EBFt \u0111\u1ECBnh
+    quan h\u1EC7 s\u1EA3n xu\u1EA5t.\r\n\r\nV\xED d\u1EE5: Khi k\u1EF9 thu\u1EADt
+    c\xF4ng nghi\u1EC7p (m\xE1y h\u01A1i n\u01B0\u1EDBc, \u0111\u01B0\u1EDDng s\u1EAFt)
+    ph\xE1t tri\u1EC3n \u2192 x\xE3 h\u1ED9i phong ki\u1EBFn lung lay, t\u01B0 s\u1EA3n
+    tr\u1ED7i d\u1EADy.\r\n\r\nCon ng\u01B0\u1EDDi l\xE0 s\u1EA3n ph\u1EA9m v\xE0
+    c\u0169ng l\xE0 ch\u1EE7 th\u1EC3 l\u1ECBch s\u1EED."
+  philosopherImage: {fileID: 0}
+  soundEffect: {fileID: 0}

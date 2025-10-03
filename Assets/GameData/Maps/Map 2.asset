@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Map 2
   Art: {fileID: 21300000, guid: 6818a2a267da45344bbd523be9f29a9a, type: 3}
-  scene: {fileID: 102900000, guid: 202fe393d5e55284995ecb09c4c1e313, type: 3}
+  scene: {fileID: 102900000, guid: 64395a0466ef4d84790d787acd5677af, type: 3}
+  IsUnlocked: 0

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bb18ea31a880b449a25c6b74006386, type: 3}
+  m_Name: Chang 1
+  m_EditorClassIdentifier: 
+  title: "V\u1EA4N \u0110\u1EC0 C\u01A0 B\u1EA2N C\u1EE6A TRI\u1EBET H\u1ECCC"
+  content: "Tri\u1EBFt h\u1ECDc h\u1ECFi: C\xE1i n\xE0o c\xF3 tr\u01B0\u1EDBc \u2013
+    v\u1EADt ch\u1EA5t hay \xFD th\u1EE9c?\r\n\r\n\u2022 Ch\u1EE7 ngh\u0129a duy
+    t\xE2m tin \xFD th\u1EE9c c\xF3 tr\u01B0\u1EDBc.\r\n\u2022 Ch\u1EE7 ngh\u0129a
+    duy v\u1EADt kh\u1EB3ng \u0111\u1ECBnh: V\u1EADt ch\u1EA5t c\xF3 tr\u01B0\u1EDBc
+    v\xE0 quy\u1EBFt \u0111\u1ECBnh \xFD th\u1EE9c.\r\n\r\nNg\u01B0\u1EDDi n\xF4ng
+    d\xE2n s\xE1ng t\u1EA1o ra l\u01B0\u1EE1i c\xE0y s\u1EAFt \u1EDF Trung Qu\u1ED1c
+    c\u1ED5 \u0111\u1EA1i \u2192 thay \u0111\u1ED5i s\u1EA3n xu\u1EA5t, x\xE3 h\u1ED9i
+    \u0111\u1ED5i thay \u2192 \xFD th\u1EE9c con ng\u01B0\u1EDDi c\u0169ng thay \u0111\u1ED5i
+    theo."
+  philosopherImage: {fileID: 0}
+  soundEffect: {fileID: 0}

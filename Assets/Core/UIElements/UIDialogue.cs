@@ -86,7 +86,7 @@ public class UIDialogue : MonoBehaviour
 
     private bool IsOptionAvailable(DialogueOption option)
     {
-        return option.requiredItem == null || playerController.Inventory.Contain(option.requiredItem);
+        return option.requiredItem == null || playerController.Inventory.HasItem(option.requiredItem);
     }
 
     private void CreateButton(DialogueOption option)
