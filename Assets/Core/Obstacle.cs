@@ -18,7 +18,7 @@ public class Obstacle : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            GameManager.instance.LoseLife();
+            GameManager.Instance.LoseLife();
             // Hiện popup câu hỏi (làm ngày 2)
             Destroy(gameObject); // Xóa luôn
         }

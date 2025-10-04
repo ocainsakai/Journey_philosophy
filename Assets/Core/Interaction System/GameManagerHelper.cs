@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerHelper : MonoBehaviour
 {
-    public void Quit() => GameManager.instance?.Quit();
-    public void LoadMainMenu() => GameManager.instance?.LoadMainMenu();
+    public void Quit() => GameManager.Instance?.Quit();
+    public void LoadMainMenu() => GameManager.Instance?.LoadMainMenu();
 
     public void LoadSccene(SceneAsset sceneAsset)
     {

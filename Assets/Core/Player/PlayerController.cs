@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     [SerializeField] PlayerMovement _movement;
     [SerializeField] PlayerInventory _inventory;
     [SerializeField] PlayerCollider _collider;
@@ -12,10 +13,21 @@ public class PlayerController : MonoBehaviour
     public PlayerInventory Inventory => _inventory;
 
     private bool _inputEnable = true;
+    public float moveSpeed { 
+        get => _movement.speed;
+        set
+        {
+            _movement.speed = value;
+        }
+    } 
+
+
     public static PlayerController Instance { get; private set; }
     private void Awake()
     {
         Instance = this;
+        UnStop();
+        _movement.enabled = true ;
         //Inventory.OnInventoryAdd += () => _uiInventory.UpdateItem(Inventory.Items);
         //Inventory.OnInventoryRemove += () => _uiInventory.UpdateItem(Inventory.Items);
     }
@@ -29,26 +41,14 @@ public class PlayerController : MonoBehaviour
         _inputEnable = true;
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.F) && _inputEnable )
-    //    {
-    //        CheckInteract();
-    //    }
-    //}
-
-    //public void CheckInteract()
-    //{
-        
-    //    if (_collider.CanInteract())
-    //    {
-    //        _collider.GetInteractable().Interact();
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("No interactable object found");
-    //    }
-    //}
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Water"))
+        {
+            // Gọi Manager xử lý
+            Stage2Manager.PlayerFellInWater();
+        }
+    }
 
     public void Stop()
     {

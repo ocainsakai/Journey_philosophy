@@ -52,7 +52,7 @@ public class QuestionManager : MonoBehaviour
         else
         {
             onWrong?.Invoke();  
-            GameManager.instance.LoseLife();
+            GameManager.Instance.LoseLife();
             questionPanel.SetActive(false);
             PlayerController.Instance.UnStop();
             //Time.timeScale = 1;

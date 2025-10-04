@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 229cc8767f81895408221d7421e3cdef, type: 3}
-  m_Name: BanhRang
+  m_Name: "B\xE1nh Xe N\u01B0\u1EDBc"
   m_EditorClassIdentifier: 
-  title: "B\xE1nh R\u0103ng"
+  title: "B\xE1nh Xe N\u01B0\u1EDBc"
   description: 
   itemId: 
   category: 
-  itemIcon: {fileID: -6633327984127202889, guid: 0b61b1e0d7f23d740aa9b207d346c7c7, type: 3}
+  itemIcon: {fileID: -4281207833843060493, guid: 7ad06b79d38d9e9439d44f2d4e928d60, type: 3}
   itemUpgrades: []
   isUnlocked: 0
   rarity: 0

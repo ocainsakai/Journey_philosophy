@@ -62,7 +62,7 @@ public class MiniBossSimple : MonoBehaviour
             // SAI
             feedbackText.text = "Sai rồi!";
             feedbackText.color = Color.red;
-            GameManager.instance.LoseLife();
+            GameManager.Instance.LoseLife();
             CloseBossFight();
             return;
         }

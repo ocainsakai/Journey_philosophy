@@ -103,7 +103,7 @@ public class PuzzleManager : MonoBehaviour
         //Time.timeScale = 1;
         PlayerController.Instance.UnStop();
         // Thông báo game
-        GameManager manager = GameManager.instance;
+        GameManager manager = GameManager.Instance;
         if (manager != null)
         {
             manager.OnPuzzleComplete();

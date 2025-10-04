@@ -14,16 +14,17 @@ public class GameManager : MonoBehaviour
     public GameObject gameOpenPanel;
     [SerializeField] private CanvasGroup canvasGroup; 
 
-    public static GameManager instance;
+    public static GameManager Instance;
 
     public UnityEvent onComplete;
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
-        instance = this;
+        Instance = this;
+        Time.timeScale = 1.0f;
     }
     public void ShowOpen()
     {

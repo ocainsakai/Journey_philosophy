@@ -52,7 +52,7 @@ public class Rock : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            GameManager.instance.LoseLife();
+            GameManager.Instance.LoseLife();
         }
         if (col.CompareTag("Ground"))
         {
